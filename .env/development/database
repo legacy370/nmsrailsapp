@@ -1,0 +1,3 @@
+POSTGRES_USER=legacy371
+POSTGRES_PASSWORD=Yogi8Berra_
+POSTGRES_DB=nmsapp_development
