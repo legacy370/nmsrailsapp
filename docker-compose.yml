@@ -1,16 +1,26 @@
 version: '3'
 
 services:
+  selenium_chrome: 
+    image: selenium/standalone-chrome-debug
+    logging:
+      driver: none
+    ports:
+      - "5900:5900"
 
   web:
     build: .
     ports:
       - "3000:3000"
+      - "4000:4000"
     volumes:
       - .:/usr/src/app
+      - gem_cache:/gems
     env_file:
       - .env/development/database
       - .env/development/web
+        #depends_on:
+        #- chrome
 
   redis:
     image: redis
@@ -21,6 +31,6 @@ services:
       - .env/development/database
     volumes:
       - db_data:/var/lib/postgresql/data
-
 volumes:
   db_data:
+  gem_cache:

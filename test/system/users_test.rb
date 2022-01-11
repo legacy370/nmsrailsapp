@@ -26,8 +26,8 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "Edit", match: :first
 
-    fill_in "First name", with: @user.first_name
-    fill_in "Last name", with: @user.last_name
+    fill_in "First name", with: 'Zoilo'
+    fill_in "Last name", with: 'Versalles'
     click_on "Update User"
 
     assert_text "User was successfully updated"
